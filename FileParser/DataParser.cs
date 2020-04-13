@@ -11,9 +11,9 @@ namespace FileParser {
         /// <returns></returns>
         public List<List<string>> StripWhiteSpace(List<List<string>> data) {
 
-
             return data; //-- return result here
         }
+    
 
         /// <summary>
         /// Strips quotes from beginning and end of each data value
@@ -21,7 +21,7 @@ namespace FileParser {
         /// <param name="data"></param>
         /// <returns></returns>
         public List<List<string>> StripQuotes(List<List<string>> data) {
-            
+  
             return data; //-- return result here
         }
 

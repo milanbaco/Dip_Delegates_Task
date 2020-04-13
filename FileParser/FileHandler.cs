@@ -1,21 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
-
+using System.Text;
 
 namespace FileParser {
+
     public class FileHandler {
-       
-        public FileHandler() { }
+       public FileHandler() {
+
+            
+
+        }
 
         /// <summary>
         /// Reads a file returning each line in a list.
         /// </summary>
         /// <param name="filePath"></param>
         /// <returns></returns>
+        /// 
         public List<string> ReadFile(string filePath) {
             List<string> lines = new List<string>();
+
+            lines = File.ReadLines(filePath)
+                               .ToList();
 
             return lines; //-- return result here
         }
@@ -28,7 +37,6 @@ namespace FileParser {
         /// <param name="delimeter"></param>
         /// <param name="rows"></param>
         public void WriteFile(string filePath, char delimeter, List<List<string>> rows) {
-
             
         }
         
@@ -41,6 +49,11 @@ namespace FileParser {
         public List<List<string>> ParseData(List<string> data, char delimiter) {
             List<List<string>> result = new List<List<string>>();
 
+            foreach (string line in data)
+            {
+                result.Add(line.Split(delimiter).ToList());
+            }
+
             return result; //-- return result here
         }
         
@@ -50,8 +63,13 @@ namespace FileParser {
         /// <param name="data"></param>
         /// <returns></returns>
         public List<List<string>> ParseCsv(List<string> data) {
-            
-            return new List<List<string>>();  //-- return result here
+            List<List<string>> result = new List<List<string>>();
+
+            foreach (string line in data)
+            {
+                result.Add(line.Split(',').ToList());
+            }
+            return result;  //-- return result here
         }
     }
 }

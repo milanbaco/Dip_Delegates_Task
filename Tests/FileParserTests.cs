@@ -10,10 +10,10 @@ namespace FileParserTests
 
         private FileHandler _fh;
         private DataParser _dp;
-        private string _csvPath = Environment.GetEnvironmentVariable("HOME") + "/TempFiles/data.csv";  // change to appropriate path
-        private string _tsvPath = Environment.GetEnvironmentVariable("HOME") + "/TempFiles/data.tsv";  // change to appropriate path
+        private string _csvPath = Environment.GetEnvironmentVariable("HOME") + @"C:\Users\Milan\Documents\GitHub\Dip_Delegates_Task\data.csv";  // change to appropriate path
+        private string _tsvPath = Environment.GetEnvironmentVariable("HOME") + @"C:\Users\Milan\Documents\GitHub\Dip_Delegates_Task\data.tsv";  // change to appropriate path
 
-        private string _writeFile = Environment.GetEnvironmentVariable("HOME") + "/TempFiles/dataWrite.txt";  // change to appropriate path
+        private string _writeFile = Environment.GetEnvironmentVariable("HOME") + @"C:\Users\Milan\Documents\GitHub\Dip_Delegates_Task\datawrite.txt";  // change to appropriate path
        
         private List<List<string>> _data;
 

@@ -23,8 +23,7 @@ namespace FileParser {
         public List<string> ReadFile(string filePath) {
             List<string> lines = new List<string>();
 
-            lines = File.ReadLines(filePath)
-                               .ToList();
+            lines = File.ReadLines(filePath).ToList();
 
             return lines; //-- return result here
         }
@@ -37,7 +36,15 @@ namespace FileParser {
         /// <param name="delimeter"></param>
         /// <param name="rows"></param>
         public void WriteFile(string filePath, char delimeter, List<List<string>> rows) {
-            
+
+            StringBuilder sb = new StringBuilder();
+
+            foreach (List<string> line in rows)
+                {
+                    sb.AppendLine(String.Join(delimeter.ToString(), line));
+                }
+            File.WriteAllText(filePath, sb.ToString());
+
         }
         
         /// <summary>

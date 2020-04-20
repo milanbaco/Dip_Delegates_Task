@@ -10,8 +10,7 @@ namespace Delegate_Exercise
     {
         static void Main(string[] args)
         {
-           
-
+            
         }
 
         public static List<List<string>> RemoveHashes(List<List<string>> data) {

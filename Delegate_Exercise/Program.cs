@@ -10,6 +10,7 @@ namespace Delegate_Exercise
     {
         static void Main(string[] args)
         {
+           
 
         }
 

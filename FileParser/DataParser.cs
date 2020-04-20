@@ -13,6 +13,7 @@ namespace FileParser {
         /// <returns></returns>
         public List<List<string>> StripWhiteSpace(List<List<string>> data) {
             char[] charsToTrim = { ' ' };
+
             for (int i = 0; i < data.Count; i++)
             {
                 for (int j = 0; j < data[i].Count; j++)

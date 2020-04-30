@@ -42,10 +42,6 @@ namespace FileParser {
                 }
             }
 
-            
-
-           
-
             return data; //-- return result here
         }
 

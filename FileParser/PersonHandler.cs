@@ -93,8 +93,7 @@ namespace FileParser {
         /// <param name="searchTerm"></param>
         /// <param name="caseSensitive"></param>
         /// <returns></returns>
-        public int GetNumSurnameBegins(string searchTerm, bool caseSensitive) {
-
+        public int GetNumSurnameBegins(string searchTerm, bool caseSensitive) {            
             if (caseSensitive) { 
             return People.Count(p => p.Surname.StartsWith(searchTerm));
             }
@@ -111,8 +110,13 @@ namespace FileParser {
         public List<string> GetAmountBornOnEachDate() {
             List<string> result = new List<string>();
 
-            
-            
+
+            var qry = from l in People orderby l.Dob ascending group l by new { l.Dob } into g select new { g.Key.Dob, value = g.Distinct().Count() };
+
+            foreach (var item in qry)
+            {
+                result.Add(item.Dob.ToString("dd/MM/yyyy") + " " + item.value);
+            }
 
             return result;  //-- return result here
         }

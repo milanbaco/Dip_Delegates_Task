@@ -56,10 +56,13 @@ namespace FileParser {
         /// </summary>
         /// <returns></returns>
         public List<Person> GetOldest() {
-           People = new List<Person>();
+           
+            DateTime dob = People.Select(i => i.Dob).Min();
 
-                    
-            return new List<Person>(); //-- return result here
+            List<Person> result = People.Where(p => p.Dob == dob).ToList();
+
+
+            return result; //-- return result here
         }
 
         /// <summary>
@@ -93,6 +96,8 @@ namespace FileParser {
         /// <returns></returns>
         public List<string> GetAmountBornOnEachDate() {
             List<string> result = new List<string>();
+
+            
 
             return result;  //-- return result here
         }

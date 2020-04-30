@@ -72,13 +72,22 @@ namespace FileParser {
         /// <returns></returns>
         public string GetString(int id) {
 
-            return "result";  //-- return result here
+            People.Where(p => p.Id == id);
+
+            List<Person> result = People.Where(p => p.Id == id).ToList();
+
+            return result.ToString();  //-- return result here
         }
 
-        public List<Person> GetOrderBySurname() {
+        public List<Person> GetOrderBySurname()
+        {
+            var orderByDescendingResult = from p in People
+                                          orderby p.Surname ascending
+                                          select p;
 
-            return new List<Person>();  //-- return result here
-        }
+            return orderByDescendingResult.ToList();  //-- return result here
+
+        } 
 
         /// <summary>
         /// Returns number of people with surname starting with a given string.  Allows case-sensitive and case-insensitive searches

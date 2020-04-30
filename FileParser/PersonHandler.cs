@@ -81,11 +81,9 @@ namespace FileParser {
 
         public List<Person> GetOrderBySurname()
         {
-            var orderByDescendingResult = from p in People
-                                          orderby p.Surname ascending
-                                          select p;
+            var orderByDescendingResult = People.OrderBy(p => p.Surname).ToList();
 
-            return orderByDescendingResult.ToList();  //-- return result here
+            return orderByDescendingResult;  //-- return result here
 
         } 
 
@@ -96,7 +94,14 @@ namespace FileParser {
         /// <param name="caseSensitive"></param>
         /// <returns></returns>
         public int GetNumSurnameBegins(string searchTerm, bool caseSensitive) {
-            return 0;  //-- return result here
+
+            if (caseSensitive) { 
+            return People.Count(p => p.Surname.StartsWith(searchTerm));
+            }
+            return People.Count(p => p.Surname.ToLower().StartsWith(searchTerm.ToLower()));
+            
+
+
         }
         
         /// <summary>
@@ -106,6 +111,7 @@ namespace FileParser {
         public List<string> GetAmountBornOnEachDate() {
             List<string> result = new List<string>();
 
+            
             
 
             return result;  //-- return result here

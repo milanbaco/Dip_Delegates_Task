@@ -21,9 +21,9 @@ namespace FileParser {
         /// <returns></returns>
         /// 
         public List<string> ReadFile(string filePath) {
-            List<string> lines = new List<string>();
+            _ = new List<string>();
 
-            lines = File.ReadLines(filePath).ToList();
+            List<string> lines = File.ReadLines(filePath).ToList();
 
             return lines; //-- return result here
         }
